@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
 """Terminal AI - Natural language to shell commands in <100 lines."""
 import os, sys, subprocess, argparse, platform, time
-from anthropic import Anthropic, APIError
+
+try:
+    from anthropic import Anthropic, APIError
+except ImportError:
+    print(
+        "\n❌ anthropic package is not installed!\n\n"
+        "Install it with:\n"
+        "  pip install anthropic\n\n"
+        "Then set your API key:\n"
+        "  export ANTHROPIC_API_KEY=\"your-key\"\n"
+        "Get your key: https://console.anthropic.com/\n"
+    )
+    sys.exit(1)
 
 DANGEROUS_COMMANDS = ["rm -rf /", ":(){ :|:& };:", "dd if=/dev/zero", "mkfs", "fork bomb", "> /dev/sda"]
 MAX_RETRIES = 3
