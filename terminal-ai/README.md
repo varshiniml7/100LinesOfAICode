@@ -34,6 +34,23 @@ python terminal.py find all large files
 - **Risk Warnings**: Shows potential dangers before execution
 - **Explanations**: Understand what each command does
 
+## Troubleshooting
+
+- **Missing API key (`ANTHROPIC_API_KEY not found`)**
+  Set the environment variable first: `export ANTHROPIC_API_KEY="your-key"`
+  Get your key at https://console.anthropic.com/
+
+- **anthropic package not installed**
+  Install it with: `pip install anthropic`
+
+- **API or network errors**
+  Terminal AI automatically retries Anthropic calls 3 times with a short backoff.
+  If errors persist, check your internet connection or try again later.
+
+- **Command timed out**
+  Shell commands are limited to 30 seconds to keep the experience responsive.
+  Try a narrower request or run the suggested command manually in your terminal.
+
 ## Common Uses
 
 ```bash
